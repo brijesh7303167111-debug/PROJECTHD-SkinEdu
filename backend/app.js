@@ -53,6 +53,6 @@ app.use("/chat", chatRoutes);
 
 
 app.get("/", protect, (req, res) => {
-  res.status(200).json({ message: `Welcome ${req.user.name} to your dashboard` });
+  res.status(200).json({ message: `Welcome to your dashboard` });
 });
 
