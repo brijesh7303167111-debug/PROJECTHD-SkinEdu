@@ -12,7 +12,7 @@ router.get("/me", (req, res, next) => {
 
 router.post("/signup", signup); //working
 router.post("/signin", signin);  //working
-router.post("/signin/get-otp", sendSigninOTP); //working
+router.post("/signin/get-otp", resendOTP); //working
 router.post("/resend-otp", resendOTP);
 router.post("/signout", signout);
 // router.post("/google-signup", googleSignIn);

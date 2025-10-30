@@ -23,6 +23,7 @@ export const sendOTPEmail = async (email, otp) => {
     await transporter.verify();
     console.log("✅ SMTP connection successful");
   } catch (err) {
+    
     console.error("❌ SMTP connection failed:", err);
     throw err; 
   }

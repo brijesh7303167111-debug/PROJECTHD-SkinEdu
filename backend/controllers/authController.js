@@ -93,36 +93,7 @@ export const sendSigninOTP = async (req, res) => {
 }
 };
 
-// Verify OTP and login
-// export const signin = async (req, res) => {
-//   try {
-//     const { email, otp, keepLoggedIn } = req.body;
-//     if (!email || !otp) return res.status(400).json({ message: "Email and OTP required" });
 
-//     const user = await User.findOne({ email });
-//     if (!user) return res.status(404).json({ message: "User not found" });
-
-//     if (user.otp !== otp || user.otpExpire < Date.now())
-//       return res.status(400).json({ message: "Invalid or expired OTP" });
-
-//     user.accountVerified = true;
-//     user.keepLoggedIn = !!keepLoggedIn;
-//     user.otp = null;
-//     user.otpExpire = null;
-//     await user.save();
-
-//     const token = generateToken(user, user.keepLoggedIn);
-
-    
-
-    
-    
-//     res.status(200).json({ message: "Logged in successfully", user });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// };
 
 export const signin = async (req, res) => {
   try {
@@ -138,8 +109,6 @@ export const signin = async (req, res) => {
 
     user.accountVerified = true;
     user.keepLoggedIn = !!keepLoggedIn;
-    // user.otp = null;
-    // user.otpExpire = null;
     await user.save();
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {

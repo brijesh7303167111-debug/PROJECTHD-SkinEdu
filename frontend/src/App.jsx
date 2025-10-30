@@ -21,19 +21,17 @@ function App() {
           <Routes>
 
             <Route path="/" element={
-            //   <ProtectedRoute>
-            //     <Home />
-            // </ProtectedRoute>
-              <Home />
+              <ProtectedRoute>
+                <Home />
+            </ProtectedRoute>
               } />
 
              
 
                <Route path="/chat" element={
-            //   <ProtectedRoute>
-            //     < Chat />
-            // </ProtectedRoute>
-             < Chat />
+              <ProtectedRoute>
+                < Chat />
+            </ProtectedRoute>
               } />
 
                <Route path="/result" element={
@@ -43,10 +41,9 @@ function App() {
               } />
 
              <Route path="/form" element={
-            //   <ProtectedRoute>
-            //     < Formcom />
-            // </ProtectedRoute>
-            < Formcom />
+              <ProtectedRoute>
+                < Formcom />
+            </ProtectedRoute>
               } />
 
             <Route path="/signup" element={<Signup />} />
