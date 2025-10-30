@@ -56,3 +56,9 @@ app.get("/", protect, (req, res) => {
   res.status(200).json({ message: `Welcome ${req.user.name} to your dashboard` });
 });
 
+
+app.get("/test", (req, res) => {
+  res.status(200).json({ message: "Backend is working perfectly!" });
+});
+
+
