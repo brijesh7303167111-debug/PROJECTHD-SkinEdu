@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "https://project-hd.onrender.com",
-  baseURL: "http://localhost:3000",
+  baseURL: "https://project-hd.onrender.com",
+  // baseURL: "http://localhost:3000",
 });
 
 // Helper to set token in headers dynamically
