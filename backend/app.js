@@ -9,6 +9,7 @@ import chatRoutes from './routes/chatRoutes.js';
 import { protect } from './middleware/authMiddleware.js';
 import notesRoutes from './routes/notesRoutes.js';
 import skinroutes from './routes/skinroutes.js';
+import dotenv from 'dotenv';
 dotenv.config();
 export const app = express();
 config({path:'./.env'});
@@ -62,3 +63,14 @@ app.get("/test", (req, res) => {
 });
 
 
+
+const PORT = process.env.PORT || 3000 ;
+dotenv.config();
+
+app.listen(PORT, () => {
+
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("EMAIL_PASS:  yha", process.env.EMAIL_PASS ? "Loaded ✅" : "Not loaded ❌");
+
+    console.log(`Server is running on port ${PORT}`);
+});
