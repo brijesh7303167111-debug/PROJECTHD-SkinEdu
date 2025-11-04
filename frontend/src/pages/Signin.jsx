@@ -52,6 +52,7 @@ export default function Signin() {
   // Step 2: Verify OTP (Sign in)
   const handleSignup = async () => {
     setLoading(true);
+    
     try {
       const res = await api.post("/auth/signin", {
         email: form.email,
