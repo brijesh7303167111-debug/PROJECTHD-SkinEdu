@@ -1,30 +1,40 @@
 import nodemailer from "nodemailer";
 
 
+
+
 export const sendOTPEmail = async (email, otp) => {
-  const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || "smtp-relay.brevo.com",
-    port: process.env.EMAIL_PORT ? Number(process.env.EMAIL_PORT) : 587,
-    secure: false, // Brevo uses STARTTLS
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+  
+  // const transporter = nodemailer.createTransport({
+  //   host: process.env.EMAIL_HOST || "smtp-relay.brevo.com",
+  //   port: process.env.EMAIL_PORT ? Number(process.env.EMAIL_PORT) : 587,
+  //   secure: false, // Brevo uses STARTTLS
+  //   auth: {
+  //     user: process.env.EMAIL_USER,
+  //     pass: process.env.EMAIL_PASS,
+  //   },
+  //   tls: {
+  //     rejectUnauthorized: false,
+  //   },
+  // });
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER, // Replace with your email
+    pass: process.env.EMAIL_PASS, // Replace with your email password
+  },
+  tls: {
+    rejectUnauthorized: false, // Disable strict SSL verification
+  },
+});
+
 
   console.log("sendOTPEmail function me agya");
   console.log("EMAIL_USER:", process.env.EMAIL_USER);
   console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded ✅" : "Not loaded ❌");
 
-  try {
-    console.log("transporter ko verify karne gyaa");
-    await transporter.verify();
-    console.log("✅ SMTP connection successful");
-  } catch (err) {
-    console.error("❌ SMTP connection failed:", err);
-    throw err;
-  }
-
+ 
   const mailOptions = {
     from: `"SkinEdu" <${process.env.EMAIL_USER}>`,
     to: email,
