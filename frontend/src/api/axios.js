@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://projecthd-skinedu.onrender.com/",
+  baseURL: "https://projecthd-skin-edu-66rh.vercel.app/",
   // baseURL: "http://localhost:3000/",
 });
 
